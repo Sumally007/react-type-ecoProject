@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useFilter } from "./FilterContext";
 
 interface Product {
     category: string;
@@ -9,6 +10,20 @@ interface FetchResponse {
 }
 
 const Sidebar = () => {
+
+    const {
+        searchQuery,
+        setSearchQuery,
+        selectedCategory,
+        setSelectedCategory,
+        minPrice,
+        setMinPrice,
+        maxPrice,
+        setMaxPrice,
+        keyword,
+        setKeyword,
+    } = useFilter();
+
     const [categories, setCategories] = useState<string[]>([])
     const [keywords] = useState<string[]>([
         "apple",
@@ -43,7 +58,9 @@ const Sidebar = () => {
 
             <section>
                 <input
-                    type="text" className="border-2 rounded px-2 sm:mb-0" placeholder="Search Product" />
+                    type="text" className="border-2 rounded px-2 sm:mb-0" placeholder="Search Product"
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)} />
 
                 <div className="flex justify-center items-center">
                     <input
