@@ -38,6 +38,7 @@ const Sidebar = () => {
             try {
                 const response = await fetch("https://dummyjson.com/products");
                 const data: FetchResponse = await response.json();
+                console.log(data);
                 const uniqueCategories = Array.from(new Set(data.products.map((product) => product.category))
                 );
                 console.log(uniqueCategories);
@@ -49,6 +50,36 @@ const Sidebar = () => {
 
         fetchCategories();
     }, []);
+
+    // Inasikiliza mabadiliko kwenye input, inabadilisha string kuwa namba (float), au kuweka undefined kama ipo wazi.
+    const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setMinPrice(value ? parseFloat(value) : undefined)
+    }
+
+    const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setMaxPrice(value ? parseFloat(value) : undefined)
+    }
+
+    // function hii chini inabadilisha state iliopo kwenye selectedCategory na kuweka category mpya user alioibonyeza kwenye radio button
+    const handleRadioChangeCategories = (category: string) => {
+        setSelectedCategory(category)
+    }
+
+    // function hii chini inabadilisha state iliopo kwenye keyword na kuweka keyword mpya user alioibonyeza kwenye button
+    const handleKeywordClick = (keyword: string) => {
+        setKeyword(keyword);
+    }
+
+    // function hii chini user anapobonyeza button ya reset, ina reset kila kitu
+    const handleResetFilters = () => {
+        setSearchQuery("");
+        setSelectedCategory("");
+        setMinPrice(undefined);
+        setMaxPrice(undefined);
+        setKeyword("");
+    }
 
 
     return (
@@ -64,21 +95,33 @@ const Sidebar = () => {
 
                 <div className="flex justify-center items-center">
                     <input
-                        type="text" className="border-2 mr-2 px-5 py-3 mb-3 w-full" placeholder="Min" />
+                        type="text"
+                        className="border-2 mr-2 px-5 py-3 mb-3 w-full"
+                        placeholder="Min"
+                        value={minPrice ?? ""}
+                        onChange={handleMinPriceChange}
+                    />
                     <input
-                        type="text" className="border-2 mr-2 px-5 py-3 mb-3 w-full" placeholder="Max" />
+                        type="text"
+                        className="border-2 mr-2 px-5 py-3 mb-3 w-full"
+                        placeholder="Max"
+                        value={maxPrice ?? ""}
+                        onChange={handleMaxPriceChange}
+                    />
                 </div>
 
                 <section>
                     {categories.map((category, index) => (
 
                         < label key={index} className="block mb-2" >
-
                             <input
                                 type="radio"
                                 name="category"
                                 value={category}
-                                className="mr-2 w-[16px] h-[16px]" />
+                                onChange={() => handleRadioChangeCategories(category)}
+                                className="mr-2 w-[16px] h-[16px]
+                                "
+                                checked={selectedCategory === category} />
                             {category.toUpperCase()}
                         </label>
                     ))}
@@ -91,6 +134,7 @@ const Sidebar = () => {
                     <div>
                         {keywords.map((keyword, index) => (
                             <button key={index}
+                                onClick={() => handleKeywordClick(keyword)}
                                 className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200">
                                 {keyword.toUpperCase()}
                             </button>
@@ -98,7 +142,7 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <button className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5">
+                <button onClick={handleResetFilters} className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5">
                     Reset Filters
                 </button>
             </section>
