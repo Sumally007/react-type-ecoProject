@@ -89,7 +89,7 @@ const Sidebar = () => {
 
             <section>
                 <input
-                    type="text" className="border-2 rounded px-2 sm:mb-0" placeholder="Search Product"
+                    type="text" className="border-2 w-full rounded px-2 sm:mb-0" placeholder="Search Product"
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)} />
 
