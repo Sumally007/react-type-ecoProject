@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext"
 import { LuTally3 } from "react-icons/lu";
+import axios from "axios";
+
 
 const MainContent = () => {
     const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } = useFilter();
@@ -8,8 +10,29 @@ const MainContent = () => {
     const [products, setProducts] = useState<any>([]);
     const [filter, setFilter] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
-    const [dropdownOpen, setDropdownOpen] = useState(true);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const itemsPerPage = 12;
+
+    // this hook below will get products from API only when the current page or keyword change
+    useEffect(() => {
+
+        let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+
+        if (keyword) {
+            url = `https://dummyjson.com/products/search?q=${keyword}`;
+        }
+
+        axios.get(url).then(response => {
+            setProducts(response.data.products);
+            console.log(response.data.products)
+        }).catch(error => {
+            console.error("Error fetching data", error);
+        })
+    }, [currentPage, keyword]);
+
+
+
+
     return (
         <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
             <div className="mb-5">
@@ -35,6 +58,9 @@ const MainContent = () => {
                         )}
                     </div>
                 </div>
+            </div>
+            <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
+                {/* BookCard */}
             </div>
         </section>
     )
