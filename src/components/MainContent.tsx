@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext"
 import { LuTally3 } from "react-icons/lu";
 import axios from "axios";
+import BookCard from "./BookCard";
 
 
 const MainContent = () => {
@@ -31,6 +32,75 @@ const MainContent = () => {
     }, [currentPage, keyword]);
 
 
+    //this function below will only filter products that the user select on the categories
+    const getFilteredProducts = () => {
+        let filteredProducts = products;
+        // this if statement will check if there is a selected category in the state and select products of that state
+        if (selectedCategory) {
+            filteredProducts = filteredProducts.filter((product) => product.category === selectedCategory);
+            // console.log(filteredProducts)
+        }
+
+        if (minPrice !== undefined) {
+            filteredProducts = filteredProducts.filter(product => product.price >= minPrice)
+            // console.log(filteredProducts)
+        }
+
+        if (maxPrice !== undefined) {
+            filteredProducts = filteredProducts.filter(product => product.price <= maxPrice)
+        }
+
+        if (searchQuery) {
+            filteredProducts = filteredProducts.filter((product) =>
+                product.title.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            console.log(filteredProducts)
+        }
+
+        switch (filter) {
+            case "expensive":
+                return filteredProducts.sort((a, b) => b.price - a.price);
+
+            case "cheap":
+                return filteredProducts.sort((a, b) => a.price - b.price)
+
+            case "popular":
+                return filteredProducts.sort((a, b) => b.rating - a.rating)
+            default:
+                return filteredProducts;
+        }
+    }
+
+    const filteredProducts = getFilteredProducts();
+
+    const totalProducts = 100;
+    const totalPages = Math.ceil(totalProducts / itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+        if (page > 0 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    }
+
+    const getPaginationButtons = () => {
+        const buttons: number[] = [];
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+
+        if (currentPage - 2 < 1) {
+            endPage = Math.min(totalPages, endPage + (2 - currentPage - 1));
+        }
+
+        if (currentPage + 2 < 1) {
+            startPage = Math.min(1, startPage - (2 - totalPages - currentPage));
+        }
+
+        for (let page = startPage; page <= endPage; page++) {
+            buttons.push(page);
+        }
+
+        return buttons;
+    }
 
 
     return (
@@ -58,10 +128,42 @@ const MainContent = () => {
                         )}
                     </div>
                 </div>
+                <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
+                    {filteredProducts.map((product) => (
+                        <BookCard
+                            key={product.id}
+                            id={product.id}
+                            title={product.title}
+                            image={product.thumbnail}
+                            price={product.price} />
+                    ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        className="border px-4 py-2 mx-2 rounded-full"
+                        disabled={currentPage === 1}>
+                        Previous
+                    </button>
+                    {getPaginationButtons().map((page) => (
+                        <button
+                            key={page}
+                            onClick={() => handlePageChange(page)}
+                            className={`border p-4 py-2 mx-1 rounded-full ${page === currentPage ? "bg-black text-white" : ""}`}
+                        >
+                            {page}
+                        </button>
+                    ))}
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="border px-4 py-2 mx-2 rounded-full">
+                        Next
+                    </button>
+                </div>
             </div>
-            <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
-                {/* BookCard */}
-            </div>
+
         </section>
     )
 }

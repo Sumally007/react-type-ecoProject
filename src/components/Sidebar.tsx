@@ -38,10 +38,10 @@ const Sidebar = () => {
             try {
                 const response = await fetch("https://dummyjson.com/products");
                 const data: FetchResponse = await response.json();
-                console.log(data);
+                // console.log(data);
                 const uniqueCategories = Array.from(new Set(data.products.map((product) => product.category))
                 );
-                console.log(uniqueCategories);
+                // console.log(uniqueCategories);
                 setCategories(uniqueCategories);
             } catch (error) {
                 console.error("Error fetching product", error);
@@ -55,6 +55,7 @@ const Sidebar = () => {
     const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setMinPrice(value ? parseFloat(value) : undefined)
+
     }
 
     const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,6 +71,7 @@ const Sidebar = () => {
     // function hii chini inabadilisha state iliopo kwenye keyword na kuweka keyword mpya user alioibonyeza kwenye button
     const handleKeywordClick = (keyword: string) => {
         setKeyword(keyword);
+        console.log(keyword)
     }
 
     // function hii chini user anapobonyeza button ya reset, ina reset kila kitu
