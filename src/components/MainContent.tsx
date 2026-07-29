@@ -8,7 +8,7 @@ import BookCard from "./BookCard";
 const MainContent = () => {
     const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } = useFilter();
 
-    const [products, setProducts] = useState<any>([]);
+    const [products, setProducts] = useState<any[]>([]);
     const [filter, setFilter] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -108,20 +108,20 @@ const MainContent = () => {
             <div className="mb-5">
                 <div className="flex flex-col sm:flex-row justify-between items-center">
                     <div className="relative mb-5 mt-5">
-                        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center">
+                        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
                         </button>
 
                         {dropdownOpen && (
                             <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40">
-                                <button onClick={() => setFilter("cheap")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+                                <button onClick={() => setFilter("cheap")} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
                                     Cheap
                                 </button>
-                                <button onClick={() => setFilter("expensive")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+                                <button onClick={() => setFilter("expensive")} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
                                     Expensive
                                 </button>
-                                <button onClick={() => setFilter("popular")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+                                <button onClick={() => setFilter("popular")} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
                                     Popular
                                 </button>
                             </div>
@@ -142,7 +142,7 @@ const MainContent = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center mt-5">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
-                        className="border px-4 py-2 mx-2 rounded-full"
+                        className="border px-4 py-2 mx-2 rounded-full cursor-pointer"
                         disabled={currentPage === 1}>
                         Previous
                     </button>
@@ -150,7 +150,7 @@ const MainContent = () => {
                         <button
                             key={page}
                             onClick={() => handlePageChange(page)}
-                            className={`border px-4 py-2 mx-1 rounded-full ${page === currentPage ? "bg-black text-white" : ""}`}
+                            className={`border px-4 py-2 mx-1 rounded-full cursor-pointer ${page === currentPage ? "bg-black text-white" : ""}`}
                         >
                             {page}
                         </button>
@@ -158,7 +158,7 @@ const MainContent = () => {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="border px-4 py-2 mx-2 rounded-full">
+                        className="border px-4 py-2 mx-2 rounded-full cursor-pointer">
                         Next
                     </button>
                 </div>

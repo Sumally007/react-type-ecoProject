@@ -56,7 +56,7 @@ const TopSellers = () => {
 
                         <button
                             onClick={() => handleFollowClick(index)}
-                            className={`py-1 px-3 rounded ${author.isFollowing
+                            className={`py-1 px-3 rounded cursor-pointer ${author.isFollowing
                                 ? "bg-red-500 text-white"
                                 : "bg-black text-white"
                                 }`}

@@ -115,13 +115,13 @@ const Sidebar = () => {
                 <section>
                     {categories.map((category, index) => (
 
-                        < label key={index} className="block mb-2" >
+                        < label key={index} className="block mb-2 cursor-pointer" >
                             <input
                                 type="radio"
                                 name="category"
                                 value={category}
                                 onChange={() => handleRadioChangeCategories(category)}
-                                className="mr-2 w-[16px] h-[16px]
+                                className="mr-2 w-[16px] h-[16px] cursor-pointer
                                 "
                                 checked={selectedCategory === category} />
                             {category.toUpperCase()}
@@ -137,14 +137,14 @@ const Sidebar = () => {
                         {keywords.map((keyword, index) => (
                             <button key={index}
                                 onClick={() => handleKeywordClick(keyword)}
-                                className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200">
+                                className="block mb-2 px-4 py-2 w-full  cursor-pointer text-left border rounded hover:bg-gray-200">
                                 {keyword.toUpperCase()}
                             </button>
                         ))}
                     </div>
                 </div>
 
-                <button onClick={handleResetFilters} className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5">
+                <button onClick={handleResetFilters} className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5 cursor-pointer">
                     Reset Filters
                 </button>
             </section>
