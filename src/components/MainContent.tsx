@@ -139,7 +139,7 @@ const MainContent = () => {
                     ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
+                <div className="flex flex-col sm:flex-row justify-center items-center mt-5">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         className="border px-4 py-2 mx-2 rounded-full"
@@ -150,7 +150,7 @@ const MainContent = () => {
                         <button
                             key={page}
                             onClick={() => handlePageChange(page)}
-                            className={`border p-4 py-2 mx-1 rounded-full ${page === currentPage ? "bg-black text-white" : ""}`}
+                            className={`border px-4 py-2 mx-1 rounded-full ${page === currentPage ? "bg-black text-white" : ""}`}
                         >
                             {page}
                         </button>
