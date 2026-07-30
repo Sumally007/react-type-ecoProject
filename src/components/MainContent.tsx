@@ -3,6 +3,7 @@ import { useFilter } from "./FilterContext"
 import { LuTally3 } from "react-icons/lu";
 import axios from "axios";
 import BookCard from "./BookCard";
+import { MdMenu } from "react-icons/md";
 
 
 const MainContent = () => {
@@ -106,7 +107,10 @@ const MainContent = () => {
     return (
         <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
             <div className="mb-5">
-                <div className="flex flex-col sm:flex-row justify-between items-center">
+                <div className="flex sm:flex-row justify-between items-center">
+                    <div>
+                        <MdMenu size={16} className="text-center sm:hidden" />
+                    </div>
                     <div className="relative mb-5 mt-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
@@ -128,7 +132,7 @@ const MainContent = () => {
                         )}
                     </div>
                 </div>
-                <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
                     {filteredProducts.map((product) => (
                         <BookCard
                             key={product.id}
@@ -139,7 +143,7 @@ const MainContent = () => {
                     ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row justify-center items-center mt-5">
+                <div className="flex sm:flex-row justify-center items-center mt-5">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         className="border px-4 py-2 mx-2 rounded-full cursor-pointer"
