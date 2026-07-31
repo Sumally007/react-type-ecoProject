@@ -110,7 +110,7 @@ const MainContent = () => {
             <div className="mb-5">
                 <div className="flex sm:flex-row justify-between items-center">
                     <div>
-                        <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4 sm:hidden"><MdMenu onClick={toggleSidebar} size={16} className="text-center sm:hidden" />React Store
+                        <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4 sm:hidden"><MdMenu onClick={toggleSidebar} size={16} className="text-center mr-2 sm:hidden" />React Store
                         </h1>
                     </div>
                     <div className="relative mb-5 mt-5">

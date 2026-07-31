@@ -27,7 +27,7 @@ export const FiltetProvider: React.FC<{ children: ReactNode }> = ({
     const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
     const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
     const [keyword, setKeyword] = useState<string>("");
-    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
     const toggleSidebar = () => {
         setIsSidebarOpen((prev) => !prev);

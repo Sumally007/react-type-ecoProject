@@ -12,7 +12,7 @@ export default function App() {
       <div className="flex h-screen">
 
         <Sidebar />
-        <div className="sm:rounded flex justify-center">
+        <div className="flex flex-col sm:flex-col xl:flex-row">
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/product/:id" element={<ProductPage />} />

@@ -87,7 +87,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className={`${isSidebarOpen ? "block" : "hidden"} w-64 bg-white sm:w-64 sm:block p-5 h-screen`}>
+        <div className={`${isSidebarOpen ? "block" : "hidden"} absolute w-64 bg-white sm:relative sm:w-64 sm:block p-5 h-screen`}>
             <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4">React Store<MdMenu onClick={toggleSidebar} size={16} className="text-center sm:hidden" />
             </h1>
             <section>
