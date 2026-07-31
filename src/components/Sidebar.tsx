@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
+import { MdMenu } from "react-icons/md";
 
 interface Product {
     category: string;
@@ -21,6 +22,8 @@ const Sidebar = () => {
         maxPrice,
         setMaxPrice,
         setKeyword,
+        isSidebarOpen,
+        toggleSidebar
     } = useFilter();
 
     const [categories, setCategories] = useState<string[]>([])
@@ -84,10 +87,9 @@ const Sidebar = () => {
 
 
     return (
-        <div className="hidden sm:w-64 sm:block p-5 h-screen">
-            <h1 className="text-2xl font-bold mb-10 mt-4">React Store
+        <div className={`${isSidebarOpen ? "block" : "hidden"} w-64 bg-white sm:w-64 sm:block p-5 h-screen`}>
+            <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4">React Store<MdMenu onClick={toggleSidebar} size={16} className="text-center sm:hidden" />
             </h1>
-
             <section>
                 <input
                     type="text" className="outline-none border-2 w-full rounded px-2 sm:mb-0" placeholder="Search Product"

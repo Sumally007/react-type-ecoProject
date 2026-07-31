@@ -12,6 +12,8 @@ interface FilterContexType {
     setMaxPrice: (price: number | undefined) => void;
     keyword: string;
     setKeyword: (keyword: string) => void;
+    isSidebarOpen: boolean;
+    toggleSidebar: () => void;
 }
 
 
@@ -25,6 +27,12 @@ export const FiltetProvider: React.FC<{ children: ReactNode }> = ({
     const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
     const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
     const [keyword, setKeyword] = useState<string>("");
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen((prev) => !prev);
+        console.log(isSidebarOpen);
+    };
 
     return (
         <FilterContext.Provider value={{
@@ -37,7 +45,9 @@ export const FiltetProvider: React.FC<{ children: ReactNode }> = ({
             maxPrice,
             setMaxPrice,
             keyword,
-            setKeyword
+            setKeyword,
+            isSidebarOpen,
+            toggleSidebar
         }}>
             {children}
         </FilterContext.Provider>

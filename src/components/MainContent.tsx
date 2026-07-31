@@ -7,7 +7,8 @@ import { MdMenu } from "react-icons/md";
 
 
 const MainContent = () => {
-    const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } = useFilter();
+    const { searchQuery, selectedCategory, minPrice, maxPrice, keyword, isSidebarOpen,
+        toggleSidebar, } = useFilter();
 
     const [products, setProducts] = useState<any[]>([]);
     const [filter, setFilter] = useState("all");
@@ -109,7 +110,8 @@ const MainContent = () => {
             <div className="mb-5">
                 <div className="flex sm:flex-row justify-between items-center">
                     <div>
-                        <MdMenu size={16} className="text-center sm:hidden" />
+                        <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4 sm:hidden"><MdMenu onClick={toggleSidebar} size={16} className="text-center sm:hidden" />React Store
+                        </h1>
                     </div>
                     <div className="relative mb-5 mt-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center cursor-pointer">

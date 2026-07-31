@@ -12,12 +12,11 @@ export default function App() {
       <div className="flex h-screen">
 
         <Sidebar />
-        <div className="rounded w-full flex justify-center flex-wrap">
+        <div className="sm:rounded flex justify-center">
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/product/:id" element={<ProductPage />} />
           </Routes>
-
           <div>
             <TopSellers />
             <PopularBlogs />
