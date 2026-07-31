@@ -7,7 +7,7 @@ import { MdMenu } from "react-icons/md";
 
 
 const MainContent = () => {
-    const { searchQuery, selectedCategory, minPrice, maxPrice, keyword, isSidebarOpen,
+    const { searchQuery, selectedCategory, minPrice, maxPrice, keyword,
         toggleSidebar, } = useFilter();
 
     const [products, setProducts] = useState<any[]>([]);
