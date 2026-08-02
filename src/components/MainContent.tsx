@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext"
 import { LuTally3 } from "react-icons/lu";
-import axios from "axios";
+// import axios from "axios";
 import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
 
@@ -17,20 +17,57 @@ const MainContent = () => {
     const itemsPerPage = 12;
 
     // this hook below will get products from API only when the current page or keyword change
+    // useEffect(() => {
+
+
+
+    //     let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+
+
+
+    //     if (keyword) {
+
+    //         url = `https://dummyjson.com/products/search?q=${keyword}`;
+
+    //     }
+
+
+
+    //     axios.get(url).then(response => {
+
+    //         setProducts(response.data.products);
+
+    //         console.log(response.data.products)
+
+    //     }).catch(error => {
+
+    //         console.error("Error fetching data", error);
+
+    //     })
+
+    // }, [currentPage, keyword]);
+
     useEffect(() => {
 
-        let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+        const fetchProductPerPage = async () => {
+            try {
+                let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
 
-        if (keyword) {
-            url = `https://dummyjson.com/products/search?q=${keyword}`;
+                if (keyword) {
+                    url = `https://dummyjson.com/products/search?q=${keyword}`;
+                }
+
+                const response = await fetch(url);
+
+                const data = await response.json();
+
+                setProducts(data.products);
+
+            } catch (error) {
+                console.error("Error fetching data", error);
+            }
         }
-
-        axios.get(url).then(response => {
-            setProducts(response.data.products);
-            console.log(response.data.products)
-        }).catch(error => {
-            console.error("Error fetching data", error);
-        })
+        fetchProductPerPage();
     }, [currentPage, keyword]);
 
 

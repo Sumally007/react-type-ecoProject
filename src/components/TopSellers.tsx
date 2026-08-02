@@ -17,6 +17,7 @@ const TopSellers = () => {
                 const response = await fetch("https://randomuser.me/api/?results=5");
 
                 const data = await response.json();
+                console.log("Data halisi kutoka API:", data.results);
 
                 const authorsData: Author[] = data.results.map((user: any) => (
                     {
@@ -24,8 +25,7 @@ const TopSellers = () => {
                         isFollowing: false,
                         image: user.picture.medium,
                     }
-                ))
-
+                ));
                 setAuthors(authorsData);
             } catch (error) {
                 console.error(`Error fetching authors: ${error}`)

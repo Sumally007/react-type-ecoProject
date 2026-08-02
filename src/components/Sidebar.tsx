@@ -35,15 +35,17 @@ const Sidebar = () => {
         "shoes"
     ])
 
+    // useEffect ina fetch data za bidhaa kisha inazitengeneza katika makundi yacategory bila ya kuyarudia
     useEffect(() => {
         const fetchCategories = async () => {
             try {
                 const response = await fetch("https://dummyjson.com/products");
+
                 const data: FetchResponse = await response.json();
-                // console.log(data);
+
                 const uniqueCategories = Array.from(new Set(data.products.map((product) => product.category))
                 );
-                // console.log(uniqueCategories);
+
                 setCategories(uniqueCategories);
             } catch (error) {
                 console.error("Error fetching product", error);

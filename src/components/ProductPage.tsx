@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -18,19 +18,38 @@ const ProductPage = () => {
     const navigate = useNavigate();
     const [product, setProduct] = useState<Product | null>(null);
 
+    // useEffect hii inachukua data ya bidha moja kulingana na id ya hio bidhaa husika (kila wakati id inapobadilika)
+    // useEffect(() => {
+    //     if (id) {
+    //         axios.get<Product>(`https://dummyjson.com/products/${id}`).then((response) => {
+    //             setProduct(response.data);
+    //         }).catch((error) => {
+    //             console.error(`Error fetching product data: ${error}`);
+    //         })
+    //     }
+    // }, [id]);
+
+    // useEffect hii inachukua data ya bidha moja kulingana na id ya hio bidhaa husika (kila wakati id inapobadilika)
     useEffect(() => {
-        if (id) {
-            axios.get<Product>(`https://dummyjson.com/products/${id}`).then((response) => {
-                setProduct(response.data);
-            }).catch((error) => {
+        const fetchProduct = async () => {
+            if (!id) return;
+
+            try {
+                const response = await fetch(`https://dummyjson.com/products/${id}`);
+                const data: Product = await response.json();
+                setProduct(data);
+            } catch (error) {
                 console.error(`Error fetching product data: ${error}`);
-            })
-        }
+            }
+        };
+
+        fetchProduct();
     }, [id]);
 
     if (!product) {
         return <h1>Loading...</h1>
     }
+
     return (
         <div className="p-5 w-full sm:w-[60%]">
             <button
