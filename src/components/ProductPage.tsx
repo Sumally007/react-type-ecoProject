@@ -1,6 +1,5 @@
-// import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Product {
     id: number;
@@ -11,50 +10,73 @@ interface Product {
     images: string[];
 }
 
-
 const ProductPage = () => {
-
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
+
     const [product, setProduct] = useState<Product | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-    // useEffect hii inachukua data ya bidha moja kulingana na id ya hio bidhaa husika (kila wakati id inapobadilika)
-    // useEffect(() => {
-    //     if (id) {
-    //         axios.get<Product>(`https://dummyjson.com/products/${id}`).then((response) => {
-    //             setProduct(response.data);
-    //         }).catch((error) => {
-    //             console.error(`Error fetching product data: ${error}`);
-    //         })
-    //     }
-    // }, [id]);
-
-    // useEffect hii inachukua data ya bidha moja kulingana na id ya hio bidhaa husika (kila wakati id inapobadilika)
     useEffect(() => {
         const fetchProduct = async () => {
-            if (!id) return;
-
+            setIsLoading(true);
+            setError(null);
             try {
+                if (!id) return;
                 const response = await fetch(`https://dummyjson.com/products/${id}`);
+
+                if (!response.ok) {
+                    throw new Error("Product not found");
+                }
+
                 const data: Product = await response.json();
                 setProduct(data);
-            } catch (error) {
-                console.error(`Error fetching product data: ${error}`);
+            } catch (err: any) {
+                console.error(`Error fetching product data: ${err}`);
+                setError("Product could not be found or an error occurred.");
+            } finally {
+                setIsLoading(false);
             }
         };
 
         fetchProduct();
     }, [id]);
 
-    if (!product) {
-        return <h1>Loading...</h1>
+    // Loading State
+    if (isLoading) {
+        return (
+            <div className="p-10 flex justify-center items-center">
+                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
+                <span className="ml-3 text-lg font-semibold">Loading product...</span>
+            </div>
+        );
     }
 
+    // Error au Product Not Found State
+    if (error || !product) {
+        return (
+            <div className="p-10 text-center">
+                <h2 className="text-2xl font-bold text-red-500 mb-4">
+                    {error || "Product Not Found"}
+                </h2>
+                <button
+                    onClick={() => navigate(-1)}
+                    className="px-4 py-2 bg-black text-white rounded cursor-pointer"
+                >
+                    Go Back
+                </button>
+            </div>
+        );
+    }
+
+    // Success State
     return (
         <div className="p-5 w-full sm:w-[60%]">
             <button
                 onClick={() => navigate(-1)}
-                className="mb-5 px-4 py-2 bg-black text-white rounded cursor-pointer">
+                className="mb-5 px-4 py-2 bg-black text-white rounded cursor-pointer"
+            >
                 Back
             </button>
 
@@ -72,7 +94,7 @@ const ProductPage = () => {
                 <p className="ml-10">Rating: {product.rating}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProductPage
+export default ProductPage;
