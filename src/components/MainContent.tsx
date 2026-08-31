@@ -106,7 +106,7 @@ const MainContent = () => {
                             React Store
                         </h1>
                     </div>
-                    <div className="relative mb-5 mt-10">
+                    <div className="relative mb-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
