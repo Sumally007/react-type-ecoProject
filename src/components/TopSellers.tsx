@@ -42,18 +42,18 @@ const TopSellers = () => {
     };
 
     return (
-        <div className="bg-white p-5 mx-5 mt-5 sm:mt-[5rem] border w-[23rem] rounded">
+        <div className="bg-white p-5 mx-5 mt-5 sm:mt-[5rem] border rounded">
             <h2 className="text-xl font-bold mb-5">Top Sellers</h2>
 
             {isLoading ? (
-                <div className="flex justify-center items-center py-5">
+                <div className="h-[264px] w-[330px] flex justify-center items-center py-5">
                     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-black"></div>
                     <span className="ml-2 text-sm text-gray-500">Loading sellers...</span>
                 </div>
             ) : (
-                <ul>
+                <ul className="w-[330px]">
                     {authors.map((author, index) => (
-                        <li key={index} className="flex items-center justify-between mb-4">
+                        <li key={index} className={`flex items-center justify-between ${index === authors.length - 1 ? "" : "mb-4"}`}>
                             <section className="flex items-center">
                                 <img
                                     src={author.image}

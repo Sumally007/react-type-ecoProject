@@ -72,7 +72,7 @@ const ProductPage = () => {
 
     // Success State
     return (
-        <div className="p-5 w-full sm:w-[60%]">
+        <div className="h-[886px] xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
             <button
                 onClick={() => navigate(-1)}
                 className="mb-5 px-4 py-2 bg-black text-white rounded cursor-pointer"

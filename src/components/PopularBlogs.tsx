@@ -62,7 +62,7 @@ const PopularBlogs = () => {
 
             <ul>
                 {blogList.map((blog, index) => (
-                    <li key={index} className="mb-4">
+                    <li key={index} className="mb-4 last:mb-0">
                         <div className="flex justify-between items-center">
                             <span className="font-bold mb-2">{blog.title}</span>
                         </div>

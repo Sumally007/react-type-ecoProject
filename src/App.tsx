@@ -13,10 +13,12 @@ export default function App() {
 
         <Sidebar />
         <div className="flex flex-col sm:flex-col xl:flex-row">
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/product/:id" element={<ProductPage />} />
-          </Routes>
+          <div className="h-[886px] flex justify-center items-center">
+            <Routes>
+              <Route path="/" element={<MainContent />} />
+              <Route path="/product/:id" element={<ProductPage />} />
+            </Routes>
+          </div>
           <div className="flex flex-col items-center">
             <TopSellers />
             <PopularBlogs />
