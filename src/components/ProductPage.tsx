@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { FaStar, FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 
 interface Product {
     id: number;
@@ -8,6 +9,8 @@ interface Product {
     price: number;
     rating: number;
     images: string[];
+    category?: string;
+    brand?: string;
 }
 
 const ProductPage = () => {
@@ -43,56 +46,114 @@ const ProductPage = () => {
         fetchProduct();
     }, [id]);
 
-    // Loading State
-    if (isLoading) {
-        return (
-            <div className="p-10 flex justify-center items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
-                <span className="ml-3 text-lg font-semibold">Loading product...</span>
-            </div>
-        );
-    }
-
-    // Error au Product Not Found State
-    if (error || !product) {
-        return (
-            <div className="p-10 text-center">
-                <h2 className="text-2xl font-bold text-red-500 mb-4">
-                    {error || "Product Not Found"}
-                </h2>
-                <button
-                    onClick={() => navigate(-1)}
-                    className="px-4 py-2 bg-black text-white rounded cursor-pointer"
-                >
-                    Go Back
-                </button>
-            </div>
-        );
-    }
-
-    // Success State
+    /* 
+      1. MAREKEBISHO YA LAYOUT STABILITY:
+      Ili kuzuia components za kulia zisisogee kushoto wakati wa loading/error,
+      tunaweka container kuu lenye upana thabiti (xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem])
+      nje ya masharti (if statements) ya loading na error.
+    */
     return (
-        <div className="h-[886px] xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
+        <div className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5 min-h-screen">
+            {/* Kitufe cha kurudi nyuma - kinakaa juu mara zote */}
             <button
                 onClick={() => navigate(-1)}
-                className="mb-5 px-4 py-2 bg-black text-white rounded cursor-pointer"
+                className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
             >
+                <FaArrowLeft size={14} />
                 Back
             </button>
 
-            <img
-                src={product.images[0]}
-                alt={product.title}
-                className="w-[50%] h-auto mb-5"
-            />
+            {/* 2. LOADING STATE: 
+                Inabaki ndani ya container lenye upana ule ule ili layout isiharibike 
+            */}
+            {isLoading && (
+                <div className="flex flex-col justify-center items-center h-96 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
+                    <span className="mt-4 text-gray-600 font-medium">Fetching product details...</span>
+                </div>
+            )}
 
-            <h1 className="text-2xl mb-4 font-bold">{product.title}</h1>
-            <p className="mb-4 text-gray-700 w-[70%]">{product.description}</p>
+            {/* 3. ERROR / NOT FOUND STATE: 
+                Inachukua eneo lote la katikati bila kuathiri nafasi ya sidebar 
+            */}
+            {!isLoading && (error || !product) && (
+                <div className="flex flex-col justify-center items-center h-96 bg-white border border-gray-100 rounded-2xl p-8 text-center shadow-sm">
+                    <h2 className="text-2xl font-bold text-red-500 mb-2">
+                        {error || "Product Not Found"}
+                    </h2>
+                    <p className="text-gray-500 mb-6">
+                        The item you are looking for might have been removed or is temporarily unavailable.
+                    </p>
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="px-6 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
+                    >
+                        Go Back
+                    </button>
+                </div>
+            )}
 
-            <div className="flex">
-                <p>Price: ${product.price}</p>
-                <p className="ml-10">Rating: {product.rating}</p>
-            </div>
+            {/* 4. SUCCESS STATE (MUONEKANO MPYA): 
+                Umeboreshwa kuwa kadi ya kisasa yenye grid ya picha na maelezo 
+            */}
+            {!isLoading && product && (
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                        {/* Sehemu ya Picha - Imewekwa ndani ya container lenye background na hover effect */}
+                        <div className="w-full h-80 bg-gray-50 rounded-xl p-4 flex items-center justify-center overflow-hidden border border-gray-100">
+                            <img
+                                src={product.images[0]}
+                                alt={product.title}
+                                className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
+                            />
+                        </div>
+
+                        {/* Sehemu ya Maelezo ya Bidhaa */}
+                        <div className="flex flex-col">
+                            {/* Category Badge kama ipo */}
+                            {product.category && (
+                                <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full w-fit mb-3">
+                                    {product.category}
+                                </span>
+                            )}
+
+                            {/* Jina la Bidhaa */}
+                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 leading-tight">
+                                {product.title}
+                            </h1>
+
+                            {/* Rating na Star Icon */}
+                            <div className="flex items-center gap-2 mb-4">
+                                <div className="flex items-center text-amber-400 bg-amber-50 px-2.5 py-1 rounded-md text-sm font-semibold">
+                                    <FaStar className="mr-1 fill-amber-400" />
+                                    <span>{product.rating}</span>
+                                </div>
+                                <span className="text-sm text-gray-400">| Customer Rating</span>
+                            </div>
+
+                            {/* Maelezo ya Bidhaa (Description) */}
+                            <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
+                                {product.description}
+                            </p>
+
+                            {/* Bei na Kitufe cha Add to Cart */}
+                            <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
+                                <div>
+                                    <span className="text-xs text-gray-400 block uppercase font-medium">Price</span>
+                                    <span className="text-3xl font-extrabold text-gray-900">${product.price.toFixed(2)}</span>
+                                </div>
+
+                                <button className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition-all shadow-md active:scale-95 cursor-pointer">
+                                    <FaShoppingCart size={16} />
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
