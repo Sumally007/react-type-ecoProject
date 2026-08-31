@@ -9,17 +9,17 @@ import PopularBlogs from "./components/PopularBlogs";
 export default function App() {
   return (
     <Router>
-      <div className="flex h-screen">
+      <div className="flex min-h-screen bg-gray-50">
 
         <Sidebar />
-        <div className="flex flex-col sm:flex-col xl:flex-row">
-          <div className="h-[886px] flex justify-center items-center">
+        <div className="flex flex-col xl:flex-row flex-1 w-full">
+          <div className="flex-1 flex justify-center items-start p-2 sm:p-4">
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center gap-6 p-4 w-full xl:w-auto">
             <TopSellers />
             <PopularBlogs />
           </div>

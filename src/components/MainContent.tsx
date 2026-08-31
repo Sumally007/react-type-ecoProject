@@ -97,7 +97,7 @@ const MainContent = () => {
     };
 
     return (
-        <section className="h-[886px] xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
+        <section className="w-full max-w-[55rem] p-4 sm:p-6">
             <div className="mb-5">
                 <div className="flex sm:flex-row justify-between items-center">
                     <div>
@@ -130,7 +130,7 @@ const MainContent = () => {
 
                 {/* State handling: Loading vs Empty vs Data */}
                 {isLoading ? (
-                    <div className="w-full h-[800px] flex justify-center items-center py-20">
+                    <div className="w-full min-h-[400px] flex justify-center items-center py-20">
                         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
                         <span className="ml-3 text-lg font-semibold">Loading products...</span>
                     </div>
