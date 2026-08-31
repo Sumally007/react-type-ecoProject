@@ -130,7 +130,7 @@ const MainContent = () => {
 
                 {/* State handling: Loading vs Empty vs Data */}
                 {isLoading ? (
-                    <div className="w-full min-h-[400px] flex justify-center items-center py-20">
+                    <div className="w-full min-h-[600px] sm:min-h-[700px] flex justify-center items-center py-20">
                         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
                         <span className="ml-3 text-lg font-semibold">Loading products...</span>
                     </div>
