@@ -13,7 +13,7 @@ export default function App() {
 
         <Sidebar />
         <div className="flex flex-col xl:flex-row flex-1 w-full">
-          <div className="flex-1 flex justify-center items-start p-2 sm:p-4">
+          <div className="flex-1 flex justify-center items-start sm:p-4">
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/product/:id" element={<ProductPage />} />

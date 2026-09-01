@@ -97,7 +97,7 @@ const MainContent = () => {
     };
 
     return (
-        <section className="w-full max-w-[55rem] p-4 sm:p-6">
+        <section className="w-full max-w-[55rem] p-4">
             <div className="mb-5">
                 <div className="flex sm:flex-row justify-between items-center">
                     <div>

@@ -48,7 +48,7 @@ const ProductPage = () => {
 
 
     return (
-        <div className="xl:w-[784px] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5 min-h-screen">
+        <div className="w-full xl:w-[784px] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-4 min-h-screen">
 
             <button
                 onClick={() => navigate(-1)}
@@ -60,7 +60,7 @@ const ProductPage = () => {
 
             {/* LOADING STATE:*/}
             {isLoading && (
-                <div className="flex flex-col justify-center items-center h-96 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                <div className="w-full flex flex-col justify-center items-center h-96 bg-white border border-gray-100 rounded-2xl shadow-sm">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
                     <span className="mt-4 text-gray-600 font-medium">Fetching product details...</span>
                 </div>
