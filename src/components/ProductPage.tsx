@@ -48,11 +48,11 @@ const ProductPage = () => {
 
 
     return (
-        <div className="w-full xl:w-[784px] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-4 min-h-screen">
+        <div className="w-full flex flex-col items-center h-full p-4 xl:pl-4 min-h-screen">
 
             <button
                 onClick={() => navigate(-1)}
-                className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+                className="place-self-start mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
             >
                 <FaArrowLeft size={14} />
                 Back
@@ -60,7 +60,7 @@ const ProductPage = () => {
 
             {/* LOADING STATE:*/}
             {isLoading && (
-                <div className="w-full flex flex-col justify-center items-center h-96 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                <div className="w-full h-full flex flex-col justify-center items-center xl:h-96 bg-white border border-gray-100 rounded-2xl shadow-sm">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
                     <span className="mt-4 text-gray-600 font-medium">Fetching product details...</span>
                 </div>
@@ -90,7 +90,7 @@ const ProductPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
 
-                        <div className="w-full h-80 bg-gray-50 rounded-xl p-4 flex items-center justify-center overflow-hidden border border-gray-100">
+                        <div className="w-full h-[320px] xl:h-80 bg-gray-50 rounded-xl p-4 flex items-center justify-center overflow-hidden border border-gray-100">
                             <img
                                 src={product.images[0]}
                                 alt={product.title}
