@@ -28,7 +28,7 @@ const PopularBlogs = () => {
 
     return (
         <div className="bg-white p-6 w-full mt-5 border border-gray-200 rounded-2xl shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-5 tracking-tight">Popular Blogs</h2>
+            <h2 className="text-lg font-bold text-slate-900 mb-5">Popular Blogs</h2>
 
             <ul className="space-y-4">
                 {blogList.map((blog, index) => (

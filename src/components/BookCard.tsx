@@ -10,9 +10,9 @@ interface BookCardProps {
 
 const BookCard: React.FC<BookCardProps> = ({ id, title, image, price }) => {
     return (
-        <div className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 group">
+        <div className="border border-gray-200 rounded-xl p-4 gap-6 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 group">
             <Link to={`/product/${id}`} className="flex flex-col items-center h-full justify-between">
-                <div className="w-full h-36 overflow-hidden rounded-lg mb-3 flex items-center justify-center">
+                <div className="w-full h-36 bg-slate-100/50 overflow-hidden rounded-xl aspect-square mb-3 flex items-center justify-center">
                     <img
                         src={image}
                         alt={title}
@@ -20,8 +20,8 @@ const BookCard: React.FC<BookCardProps> = ({ id, title, image, price }) => {
                     />
                 </div>
                 <div className="w-full text-left">
-                    <h2 className="font-semibold text-gray-800 text-sm line-clamp-2 mb-1 group-hover:text-blue-600 transition-colors">{title}</h2>
-                    <p className="font-bold text-gray-900">${price.toFixed(2)}</p>
+                    <h2 className="font-medium text-slate-700 text-sm leading-snug line-clamp-2 mb-1 group-hover:text-blue-600 transition-colors">{title}</h2>
+                    <p className="text-base font-bold text-slate-900">${price.toFixed(2)}</p>
                 </div>
             </Link>
         </div>

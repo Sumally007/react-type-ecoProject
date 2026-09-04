@@ -52,7 +52,7 @@ const ProductPage = () => {
 
             <button
                 onClick={() => navigate(-1)}
-                className="place-self-start mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+                className="place-self-start mb-6 px-4 py-2 bg-gray-100 hover:bg-red-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
             >
                 <FaArrowLeft size={14} />
                 Back
@@ -77,7 +77,7 @@ const ProductPage = () => {
                     </p>
                     <button
                         onClick={() => navigate(-1)}
-                        className="px-6 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
+                        className="px-6 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-red-800 transition-colors cursor-pointer"
                     >
                         Go Back
                     </button>
@@ -133,7 +133,7 @@ const ProductPage = () => {
                                     <span className="text-3xl font-extrabold text-gray-900">${product.price.toFixed(2)}</span>
                                 </div>
 
-                                <button className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition-all shadow-md active:scale-95 cursor-pointer">
+                                <button className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-blue-800 text-white font-medium rounded-xl transition-all shadow-md active:scale-95 cursor-pointer">
                                     <FaShoppingCart size={16} />
                                     <span>Add to Cart</span>
                                 </button>

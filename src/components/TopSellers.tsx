@@ -43,7 +43,7 @@ const TopSellers = () => {
 
     return (
         <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 rounded-2xl shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-5 tracking-tight">Top Sellers</h2>
+            <h2 className="text-lg font-bold text-slate-900 mb-5">Top Sellers</h2>
 
             {/*LOADING STATE:*/}
             {isLoading ? (

@@ -103,7 +103,7 @@ const Sidebar = () => {
             >
                 {/* Header ya Sidebar */}
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-extrabold tracking-tight text-gray-900">
+                    <h1 className="text-2xl font-extrabold text-slate-900">
                         React Store
                     </h1>
 
@@ -118,7 +118,7 @@ const Sidebar = () => {
                 <div className="space-y-6">
 
                     <div>
-                        <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-2">
+                        <label className="text-lg font-bold text-slate-900 uppercase tracking-wider block mb-2">
                             Search
                         </label>
                         <div className="relative">
@@ -135,7 +135,7 @@ const Sidebar = () => {
 
                     {/* 4. PRICE RANGE INPUTS */}
                     <div>
-                        <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-2">
+                        <label className="text-lg font-bold text-slate-900 uppercase tracking-wider block mb-2">
                             Price Range ($)
                         </label>
                         <div className="flex gap-2 items-center">
@@ -159,7 +159,7 @@ const Sidebar = () => {
 
                     {/* 5. CATEGORIES SECTION */}
                     <div>
-                        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-3">
+                        <h2 className="text-lg font-bold text-slate-900 uppercase block mb-3">
                             Categories
                         </h2>
                         {isLoading ? (
@@ -173,9 +173,9 @@ const Sidebar = () => {
                                 {categories.map((category, index) => (
                                     <label
                                         key={index}
-                                        className={`flex items-center p-2 rounded-lg cursor-pointer text-sm font-medium transition-colors ${selectedCategory === category
+                                        className={`flex items-center p-2 rounded-lg cursor-pointer text-xs font-medium transition-colors ${selectedCategory === category
                                             ? "bg-gray-100 text-black font-semibold"
-                                            : "text-gray-600 hover:bg-gray-50"
+                                            : "text-slate-500  hover:bg-gray-100"
                                             }`}
                                     >
                                         <input
@@ -195,7 +195,7 @@ const Sidebar = () => {
 
                     {/* 6. KEYWORDS SECTION */}
                     <div>
-                        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-3">
+                        <h2 className="text-lg font-bold text-slate-900 uppercase block mb-3">
                             Popular Keywords
                         </h2>
                         <div className="flex flex-wrap gap-2">
