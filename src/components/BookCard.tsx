@@ -20,7 +20,7 @@ const BookCard: React.FC<BookCardProps> = ({ id, title, image, price }) => {
                     />
                 </div>
                 <div className="w-full text-left">
-                    <h2 className="font-medium text-slate-700 text-sm leading-snug line-clamp-2 mb-1 group-hover:text-blue-600 transition-colors">{title}</h2>
+                    <h2 className="font-medium text-slate-700 text-sm leading-snug line-clamp-2 mb-1 group-hover:text-pink-600 transition-colors">{title}</h2>
                     <p className="text-base font-bold text-slate-900">${price.toFixed(2)}</p>
                 </div>
             </Link>

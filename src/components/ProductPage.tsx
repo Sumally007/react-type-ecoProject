@@ -48,7 +48,7 @@ const ProductPage = () => {
 
 
     return (
-        <div className="w-full flex flex-col items-center h-full p-4 xl:pl-4 min-h-screen">
+        <div className="w-full flex flex-col items-center h-full p-4 pb-0 xl:pl-4 min-h-screen">
 
             <button
                 onClick={() => navigate(-1)}
@@ -77,7 +77,7 @@ const ProductPage = () => {
                     </p>
                     <button
                         onClick={() => navigate(-1)}
-                        className="px-6 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-red-800 transition-colors cursor-pointer"
+                        className="px-6 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-pink-500 transition-colors cursor-pointer"
                     >
                         Go Back
                     </button>

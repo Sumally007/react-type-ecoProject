@@ -13,13 +13,13 @@ export default function App() {
 
         <Sidebar />
         <div className="flex-1 flex justify-between flex-col xl:flex-row w-full">
-          <div className="w-full">
+          <div className="w-full maxw">
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
           </div>
-          <div className="flex flex-col items-center gap-6 p-4 w-full xl:w-auto">
+          <div className="flex flex-col items-center gap-4 p-4 w-full xl:w-auto xl:pl-0">
             <TopSellers />
             <PopularBlogs />
           </div>

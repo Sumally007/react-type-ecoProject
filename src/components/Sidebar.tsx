@@ -122,10 +122,10 @@ const Sidebar = () => {
                             Search
                         </label>
                         <div className="relative">
-                            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-pink-500" size={16} />
                             <input
                                 type="text"
-                                className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:border-black focus:ring-1 focus:ring-black transition-all"
+                                className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
                                 placeholder="Search products..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -141,7 +141,7 @@ const Sidebar = () => {
                         <div className="flex gap-2 items-center">
                             <input
                                 type="number"
-                                className="w-1/2 px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:border-black focus:ring-1 focus:ring-black transition-all"
+                                className="w-1/2 px-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
                                 placeholder="Min"
                                 value={minPrice ?? ""}
                                 onChange={handleMinPriceChange}
@@ -149,7 +149,7 @@ const Sidebar = () => {
                             <span className="text-gray-400 font-bold">-</span>
                             <input
                                 type="number"
-                                className="w-1/2 px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:border-black focus:ring-1 focus:ring-black transition-all"
+                                className="w-1/2 px-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
                                 placeholder="Max"
                                 value={maxPrice ?? ""}
                                 onChange={handleMaxPriceChange}
@@ -174,8 +174,8 @@ const Sidebar = () => {
                                     <label
                                         key={index}
                                         className={`flex items-center p-2 rounded-lg cursor-pointer text-xs font-medium transition-colors ${selectedCategory === category
-                                            ? "bg-gray-100 text-black font-semibold"
-                                            : "text-slate-500  hover:bg-gray-100"
+                                            ? "bg-pink-500 text-white font-semibold"
+                                            : "text-slate-500  hover:bg-gray-200"
                                             }`}
                                     >
                                         <input
@@ -183,7 +183,7 @@ const Sidebar = () => {
                                             name="category"
                                             value={category}
                                             onChange={() => handleRadioChangeCategories(category)}
-                                            className="mr-3 w-4 h-4 accent-black cursor-pointer"
+                                            className="mr-3 w-4 h-4 accent-pink-500 cursor-pointer"
                                             checked={selectedCategory === category}
                                         />
                                         <span className="capitalize">{category}</span>

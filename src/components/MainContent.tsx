@@ -3,9 +3,10 @@ import { useFilter } from "./FilterContext";
 import { LuTally3 } from "react-icons/lu";
 import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
+import { FiSearch } from "react-icons/fi";
 
 const MainContent = () => {
-    const { searchQuery, selectedCategory, minPrice, maxPrice, keyword, toggleSidebar } = useFilter();
+    const { searchQuery, setSearchQuery, selectedCategory, minPrice, maxPrice, keyword, toggleSidebar } = useFilter();
 
     const [products, setProducts] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -98,33 +99,46 @@ const MainContent = () => {
 
     return (
         <section className="w-full max-w-[55rem] p-4">
-            <div className="mb-5">
-                <div className="flex sm:flex-row justify-between items-center">
+            <div>
+                <div className="flex sm:flex-row justify-between items-center  flex-wrap">
                     <div>
-                        <h1 className="flex justify-between items-center text-2xl font-bold mb-10 mt-4 sm:hidden">
-                            <MdMenu onClick={toggleSidebar} size={16} className="text-center mr-2 sm:hidden cursor-pointer" />
+                        <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 sm:hidden">
+                            <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 sm:hidden cursor-pointer" />
                             React Store
                         </h1>
                     </div>
                     <div className="relative mb-5">
-                        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border px-4 py-2 rounded-full flex items-center cursor-pointer">
+                        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border bg-pink-500 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
                         </button>
 
                         {dropdownOpen && (
                             <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40 z-10 shadow-md">
-                                <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
+                                <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "cheap" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                    }`}>
                                     Cheap
                                 </button>
-                                <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
+                                <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "expensive" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                    }`}>
                                     Expensive
                                 </button>
-                                <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className="block px-4 py-2 w-full text-left hover:bg-gray-200 cursor-pointer">
+                                <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "popular" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                    }`}>
                                     Popular
                                 </button>
                             </div>
                         )}
+                    </div>
+                    <div className="relative w-full mb-10 sm:hidden">
+                        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-pink-500" size={16} />
+                        <input
+                            type="text"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
+                            placeholder="Search products..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
                     </div>
                 </div>
 
