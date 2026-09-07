@@ -18,7 +18,7 @@ export default function App() {
               <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
           </div>
-          <div className="flex flex-col items-center gap-4 p-4 pt-0  w-full xl:w-auto xl:pl-0 xl:pt-4">
+          <div className="flex flex-col items-center gap-4 p-4  w-full xl:w-auto xl:pl-0 xl:pt-4">
             <TopSellers />
             <PopularBlogs />
           </div>
