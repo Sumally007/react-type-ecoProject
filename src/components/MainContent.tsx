@@ -169,10 +169,10 @@ const MainContent = () => {
 
                 {/* Pagination */}
                 {!isLoading && filteredProducts.length > 0 && (
-                    <div className="flex sm:flex-row justify-center items-center mt-5">
+                    <div className="flex sm:flex-row justify-center items-center mt-4">
                         <button
                             onClick={() => handlePageChange(currentPage - 1)}
-                            className="border px-4 py-2 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
+                            className="border px-4 ml-0 py-2 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
                             disabled={currentPage === 1}
                         >
                             Previous
@@ -189,7 +189,7 @@ const MainContent = () => {
                         <button
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={currentPage === totalPages}
-                            className="border px-4 py-2 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
+                            className="border px-4 py-2 mr-0 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
                         >
                             Next
                         </button>
