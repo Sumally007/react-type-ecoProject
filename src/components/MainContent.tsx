@@ -98,7 +98,7 @@ const MainContent = () => {
     };
 
     return (
-        <section className="w-full max-w-[55rem] p-4">
+        <section className="w-full p-4">
             <div>
                 <div className="flex sm:flex-row justify-between items-center  flex-wrap">
                     <div>
@@ -154,7 +154,7 @@ const MainContent = () => {
                         <p className="text-gray-500">Try adjusting your filter or search keywords.</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:gap-5">
                         {filteredProducts.map((product) => (
                             <BookCard
                                 key={product.id}

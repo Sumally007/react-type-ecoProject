@@ -101,7 +101,7 @@ const Sidebar = () => {
                 className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out sm:relative sm:w-64 sm:translate-x-0 sm:block shadow-xl sm:shadow-none ${isSidebarOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"
                     }`}
             >
-                {/* Header ya Sidebar */}
+                {/* Header Sidebar */}
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-extrabold text-slate-900">
                         React Store
