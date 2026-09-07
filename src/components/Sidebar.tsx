@@ -92,13 +92,13 @@ const Sidebar = () => {
             {isSidebarOpen && (
                 <div
                     onClick={toggleSidebar}
-                    className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 sm:hidden transition-opacity duration-300"
+                    className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 md:hidden transition-opacity duration-300"
                 />
             )}
 
             {/* 2. SIDEBAR CONTAINER:*/}
             <aside
-                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out sm:relative sm:w-64 sm:translate-x-0 sm:block shadow-xl sm:shadow-none ${isSidebarOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"
+                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
                     }`}
             >
                 {/* Header Sidebar */}
@@ -109,7 +109,7 @@ const Sidebar = () => {
 
                     <button
                         onClick={toggleSidebar}
-                        className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 sm:hidden cursor-pointer"
+                        className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 md:hidden cursor-pointer"
                     >
                         <IoMdClose size={22} />
                     </button>

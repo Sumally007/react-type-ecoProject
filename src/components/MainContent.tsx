@@ -100,10 +100,10 @@ const MainContent = () => {
     return (
         <section className="w-full p-4">
             <div>
-                <div className="flex sm:flex-row justify-between items-center  flex-wrap">
+                <div className="flex md:flex-row justify-between items-center  flex-wrap">
                     <div>
-                        <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 sm:hidden">
-                            <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 sm:hidden cursor-pointer" />
+                        <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 md:hidden">
+                            <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 md:hidden cursor-pointer" />
                             React Store
                         </h1>
                     </div>
@@ -130,7 +130,7 @@ const MainContent = () => {
                             </div>
                         )}
                     </div>
-                    <div className="relative w-full mb-10 sm:hidden">
+                    <div className="relative w-full mb-10 md:hidden">
                         <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-pink-500" size={16} />
                         <input
                             type="text"
