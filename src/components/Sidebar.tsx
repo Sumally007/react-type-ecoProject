@@ -117,7 +117,7 @@ const Sidebar = () => {
 
                 <div className="space-y-6">
 
-                    <div>
+                    <div className="lg:hidden">
                         <label className="text-lg font-bold text-slate-900 uppercase tracking-wider block mb-2">
                             Search
                         </label>

@@ -100,18 +100,33 @@ const MainContent = () => {
     return (
         <section className="w-full p-4">
             <div>
-                <div className="flex md:flex-row justify-between items-center  flex-wrap">
+                <div className="flex md:flex-row justify-between items-center gap-4  flex-wrap">
                     <div>
                         <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 md:hidden">
                             <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 md:hidden cursor-pointer" />
                             React Store
                         </h1>
                     </div>
+                    <div className="flex-1 hidden lg:block">
+                        <div className="relative mb-5">
+                            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-pink-500" size={16} />
+                            <input
+                                type="text"
+                                className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
+                                placeholder="Search products..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </div>
+
+                    </div>
                     <div className="relative mb-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border bg-pink-500 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
                         </button>
+
+
 
                         {dropdownOpen && (
                             <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40 z-10 shadow-md">
