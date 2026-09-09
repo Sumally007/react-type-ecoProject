@@ -3,6 +3,7 @@ import { useFilter } from "./FilterContext";
 // import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { FiRefreshCw, FiSearch } from "react-icons/fi";
+import ThemeToggle from "./ThemeToggle";
 
 interface Product {
     category: string;
@@ -98,7 +99,7 @@ const Sidebar = () => {
 
             {/* 2. SIDEBAR CONTAINER:*/}
             <aside
-                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none dark:bg-gray-950 text-gray-900 dark:text-gray-100 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
                     }`}
             >
                 {/* Header Sidebar */}
@@ -106,6 +107,7 @@ const Sidebar = () => {
                     <h1 className="text-2xl font-extrabold text-slate-900">
                         React Store
                     </h1>
+                    <ThemeToggle />
 
                     <button
                         onClick={toggleSidebar}

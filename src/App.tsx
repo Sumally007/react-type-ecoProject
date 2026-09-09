@@ -9,7 +9,7 @@ import PopularBlogs from "./components/PopularBlogs";
 export default function App() {
   return (
     <Router>
-      <div className="flex bg-gray-50 w-full max-w-[1440px] mx-auto min-h-screen">
+      <div className="flex bg-gray-50 w-full max-w-[1440px] mx-auto min-h-screen dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Sidebar />
         <div className="flex-1 flex justify-between flex-col xl:flex-row w-full">
           <div className="w-full">

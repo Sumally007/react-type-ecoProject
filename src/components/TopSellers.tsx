@@ -42,7 +42,7 @@ const TopSellers = () => {
     };
 
     return (
-        <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 rounded-2xl shadow-sm">
+        <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 rounded-2xl shadow-sm dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-5">Top Sellers</h2>
 
             {/*LOADING STATE:*/}

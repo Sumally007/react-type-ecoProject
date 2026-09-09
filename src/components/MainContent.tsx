@@ -4,6 +4,7 @@ import { LuTally3 } from "react-icons/lu";
 import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
+import ThemeToggle from "./ThemeToggle";
 
 const MainContent = () => {
     const { searchQuery, setSearchQuery, selectedCategory, minPrice, maxPrice, keyword, toggleSidebar } = useFilter();
@@ -100,7 +101,7 @@ const MainContent = () => {
     return (
         <section className="w-full p-4">
             <div>
-                <div className="flex md:flex-row justify-between items-center gap-4  flex-wrap">
+                <div className="flex md:flex-row justify-between items-center gap-4 flex-wrap">
                     <div>
                         <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 md:hidden">
                             <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 md:hidden cursor-pointer" />
@@ -120,6 +121,7 @@ const MainContent = () => {
                         </div>
 
                     </div>
+                    <ThemeToggle />
                     <div className="relative mb-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border bg-pink-500 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
