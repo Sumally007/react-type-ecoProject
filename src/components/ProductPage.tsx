@@ -59,7 +59,7 @@ const ProductPage = () => {
                 Back
             </button>
 
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
 
             {/* LOADING STATE:*/}
             {isLoading && (
