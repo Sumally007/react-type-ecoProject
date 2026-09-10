@@ -99,12 +99,12 @@ const Sidebar = () => {
 
             {/* 2. SIDEBAR CONTAINER:*/}
             <aside
-                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none dark:bg-gray-950 text-gray-900 dark:text-gray-100 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 dark:border-zinc-800 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none dark:bg-zinc-950 text-gray-900 dark:text-gray-100 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
                     }`}
             >
                 {/* Header Sidebar */}
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-extrabold text-slate-900">
+                    <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">
                         React Store
                     </h1>
                     <ThemeToggle />
@@ -120,7 +120,7 @@ const Sidebar = () => {
                 <div className="space-y-6">
 
                     <div className="lg:hidden">
-                        <label className="text-lg font-bold text-slate-900 uppercase tracking-wider block mb-2">
+                        <label className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider block mb-2">
                             Search
                         </label>
                         <div className="relative">
@@ -137,7 +137,7 @@ const Sidebar = () => {
 
                     {/* 4. PRICE RANGE INPUTS */}
                     <div>
-                        <label className="text-lg font-bold text-slate-900 uppercase tracking-wider block mb-2">
+                        <label className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider block mb-2">
                             Price Range ($)
                         </label>
                         <div className="flex gap-2 items-center">
@@ -161,7 +161,7 @@ const Sidebar = () => {
 
                     {/* 5. CATEGORIES SECTION */}
                     <div>
-                        <h2 className="text-lg font-bold text-slate-900 uppercase block mb-3">
+                        <h2 className="text-lg font-bold text-slate-900 dark:text-white uppercase block mb-3">
                             Categories
                         </h2>
                         {isLoading ? (
@@ -197,7 +197,7 @@ const Sidebar = () => {
 
                     {/* 6. KEYWORDS SECTION */}
                     <div>
-                        <h2 className="text-lg font-bold text-slate-900 uppercase block mb-3">
+                        <h2 className="text-lg font-bold text-slate-900 dark:text-white uppercase block mb-3">
                             Popular Keywords
                         </h2>
                         <div className="flex flex-wrap gap-2">

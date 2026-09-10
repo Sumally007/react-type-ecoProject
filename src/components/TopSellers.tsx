@@ -42,7 +42,7 @@ const TopSellers = () => {
     };
 
     return (
-        <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 rounded-2xl shadow-sm dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 dark:border-zinc-800 rounded-2xl shadow-sm dark:bg-zinc-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-5">Top Sellers</h2>
 
             {/*LOADING STATE:*/}
@@ -56,7 +56,7 @@ const TopSellers = () => {
                     {authors.map((author, index) => (
                         <li
                             key={index}
-                            className="flex items-center justify-between pb-3 border-b border-gray-100 last:border-b-0 last:pb-0"
+                            className="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-zinc-800 last:border-b-0 last:pb-0"
                         >
                             <section className="flex items-center gap-3">
                                 <img

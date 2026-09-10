@@ -27,7 +27,7 @@ const PopularBlogs = () => {
     };
 
     return (
-        <div className="bg-white p-6 w-full border border-gray-200 rounded-2xl shadow-sm dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <div className="bg-white p-6 w-full border border-gray-200 dark:border-zinc-800 rounded-2xl shadow-sm dark:bg-zinc-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-5">Popular Blogs</h2>
 
             <ul className="space-y-4">

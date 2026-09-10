@@ -49,7 +49,7 @@ const ProductPage = () => {
 
 
     return (
-        <div className="w-full flex flex-col items-center h-full p-4 pb-0 xl:pl-4 min-h-screen">
+        <div className="w-full flex flex-col items-center h-full p-4 pb-0 xl:pl-4 min-h-screen dark:bg-zinc-950">
 
             <button
                 onClick={() => navigate(-1)}
@@ -89,7 +89,7 @@ const ProductPage = () => {
 
             {/* SUCCESS STATE (MUONEKANO MPYA):*/}
             {!isLoading && product && (
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm dark:bg-zinc-950">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
 

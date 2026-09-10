@@ -121,7 +121,9 @@ const MainContent = () => {
                         </div>
 
                     </div>
-                    <ThemeToggle />
+                    <div className="md:hidden">
+                        <ThemeToggle />
+                    </div>
                     <div className="relative mb-5">
                         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border bg-pink-500 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
