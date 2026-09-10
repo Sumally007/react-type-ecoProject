@@ -99,7 +99,7 @@ const Sidebar = () => {
 
             {/* 2. SIDEBAR CONTAINER:*/}
             <aside
-                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 h-screen overflow-y-auto border-r border-gray-200 dark:border-zinc-800 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none dark:bg-zinc-950 text-gray-900 dark:text-gray-100 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+                className={`fixed inset-y-0 left-0 z-40 w-72 bg-white p-6 overflow-y-auto border-r border-gray-200 dark:border-zinc-800 transition-transform duration-300 ease-in-out md:relative md:w-64 md:translate-x-0 md:block shadow-xl md:shadow-none dark:bg-zinc-950 text-gray-900 dark:text-gray-100 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
                     }`}
             >
                 {/* Header Sidebar */}
