@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaStar, FaArrowLeft, FaShoppingCart } from "react-icons/fa";
+import Button from "./Button";
 // import ThemeToggle from "./ThemeToggle";
 
 interface Product {
@@ -51,13 +52,21 @@ const ProductPage = () => {
     return (
         <div className="w-full flex flex-col items-center h-full p-4 pb-0 xl:pl-4 min-h-screen dark:bg-zinc-950">
 
-            <button
+            <Button
+                variant="secondary"
+                className="place-self-start mb-6"
+                onClick={() => navigate(-1)}>
+                <FaArrowLeft size={14} />
+                Back
+            </Button>
+
+            {/* <button
                 onClick={() => navigate(-1)}
                 className="place-self-start mb-6 px-4 py-2 bg-gray-100 hover:bg-red-200 text-gray-800 font-medium rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
             >
                 <FaArrowLeft size={14} />
                 Back
-            </button>
+            </button> */}
 
             {/* <ThemeToggle /> */}
 
@@ -89,7 +98,7 @@ const ProductPage = () => {
 
             {/* SUCCESS STATE (MUONEKANO MPYA):*/}
             {!isLoading && product && (
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm dark:bg-zinc-950">
+                <div className="bg-white border dark:border-zinc-800 border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm dark:bg-zinc-950">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
 
@@ -111,7 +120,7 @@ const ProductPage = () => {
                             )}
 
 
-                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 leading-tight">
+                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
                                 {product.title}
                             </h1>
 
@@ -130,16 +139,21 @@ const ProductPage = () => {
                             </p>
 
 
-                            <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
+                            <div className="pt-4 border-t dark:border-zinc-800 border-gray-100 flex items-center justify-between mt-auto">
                                 <div>
                                     <span className="text-xs text-gray-400 block uppercase font-medium">Price</span>
-                                    <span className="text-3xl font-extrabold text-gray-900">${product.price.toFixed(2)}</span>
+                                    <span className="text-3xl font-extrabold text-gray-900 dark:text-white">${product.price.toFixed(2)}</span>
                                 </div>
 
-                                <button className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-blue-800 text-white font-medium rounded-xl transition-all shadow-md active:scale-95 cursor-pointer">
+                                <Button variant="primary"
+                                    className="w-full sm:w-auto px-6 place-self-end">
+                                    <FaShoppingCart size={18} />
+                                    <span>Add to Cart</span>
+                                </Button>
+                                {/* <button className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-blue-800 text-white font-medium rounded-xl transition-all shadow-md active:scale-95 cursor-pointer">
                                     <FaShoppingCart size={16} />
                                     <span>Add to Cart</span>
-                                </button>
+                                </button> */}
                             </div>
                         </div>
 

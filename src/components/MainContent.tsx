@@ -156,10 +156,10 @@ const MainContent = () => {
                         )}
                     </div>
                     <div className="relative w-full mb-10 md:hidden">
-                        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-pink-500" size={16} />
+                        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
                         <input
                             type="text"
-                            className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-pink-500 rounded-xl outline-none focus:bg-white focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all placeholder:text-pink-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-gray-200 rounded-xl transition-all outline-none placeholder:text-gray-400"
                             placeholder="Search products..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "./Button";
 
 interface Author {
     name: string;
@@ -66,7 +67,13 @@ const TopSellers = () => {
                                 />
                                 <span className="font-semibold text-gray-800 dark:text-gray-400 text-sm">{author.name}</span>
                             </section>
-                            <button
+                            <Button
+                                variant="secondary"
+                                className="px-3 py-1 text-xs rounded-full"
+                                onClick={() => handleFollowClick(index)}>
+                                {author.isFollowing ? "Following" : "Follow"}
+                            </Button>
+                            {/* <button
                                 onClick={() => handleFollowClick(index)}
                                 className={`py-1.5 px-4 rounded-xl font-medium text-xs transition-all duration-200 shadow-sm active:scale-95 cursor-pointer ${author.isFollowing
                                     ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
@@ -74,7 +81,7 @@ const TopSellers = () => {
                                     }`}
                             >
                                 {author.isFollowing ? "Following" : "Follow"}
-                            </button>
+                            </button> */}
                         </li>
                     ))}
                 </ul>
