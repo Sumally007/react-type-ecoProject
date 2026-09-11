@@ -5,6 +5,7 @@ import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
+import Button from "./Button";
 
 const MainContent = () => {
     const { searchQuery, setSearchQuery, selectedCategory, minPrice, maxPrice, keyword, toggleSidebar } = useFilter();
@@ -125,24 +126,29 @@ const MainContent = () => {
                         <ThemeToggle />
                     </div>
                     <div className="relative mb-5">
-                        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="border bg-pink-500 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
+                        <Button variant="primary" onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
-                        </button>
+                        </Button>
+
+                        {/* <button onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
+                            <LuTally3 />
+                            {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
+                        </button> */}
 
 
 
                         {dropdownOpen && (
                             <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40 z-10 shadow-md">
-                                <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "cheap" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "cheap" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
                                     }`}>
                                     Cheap
                                 </button>
-                                <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "expensive" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "expensive" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
                                     }`}>
                                     Expensive
                                 </button>
-                                <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "popular" ? "bg-pink-100 text-pink-600" : "hover:bg-gray-100 text-gray-700"
+                                <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "popular" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
                                     }`}>
                                     Popular
                                 </button>
@@ -188,30 +194,45 @@ const MainContent = () => {
 
                 {/* Pagination */}
                 {!isLoading && filteredProducts.length > 0 && (
-                    <div className="flex sm:flex-row justify-center items-center mt-4">
-                        <button
+                    <div className="flex gap-2 sm:flex-row justify-center items-center mt-4">
+                        <Button variant="outline" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                            Previous
+                        </Button>
+                        {/* <button
                             onClick={() => handlePageChange(currentPage - 1)}
                             className="border px-4 ml-0 py-2 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
                             disabled={currentPage === 1}
                         >
                             Previous
-                        </button>
+                        </button> */}
                         {getPaginationButtons().map((page) => (
-                            <button
+                            <Button
+                                variant={
+                                    currentPage === page ? "primary" : "outline"
+                                } className="rounded-full"
                                 key={page}
-                                onClick={() => handlePageChange(page)}
-                                className={`border px-4 py-2 mx-1 rounded-full cursor-pointer ${page === currentPage ? "bg-indigo-950 text-white" : ""}`}
-                            >
+                                onClick={() => handlePageChange(page)}>
                                 {page}
-                            </button>
+                            </Button>
+                            // <button
+                            //     key={page}
+                            //     onClick={() => handlePageChange(page)}
+                            //     className={`border px-4 py-2 mx-1 rounded-full cursor-pointer ${page === currentPage ? "bg-indigo-950 text-white" : ""}`}
+                            // >
+                            //     {page}
+                            // </button>
                         ))}
-                        <button
+
+                        <Button variant="outline" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                            Next
+                        </Button>
+                        {/* <button
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={currentPage === totalPages}
                             className="border px-4 py-2 mr-0 mx-2 bg-indigo-950 text-white rounded-full cursor-pointer disabled:opacity-50"
                         >
                             Next
-                        </button>
+                        </button> */}
                     </div>
                 )}
             </div>

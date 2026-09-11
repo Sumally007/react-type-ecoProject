@@ -219,7 +219,7 @@ const Sidebar = () => {
                     {/* 7. RESET BUTTON */}
                     <button
                         onClick={handleResetFilters}
-                        className="w-full py-2.5 px-4 bg-gray-900 hover:bg-black text-white text-sm font-semibold rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer mt-4"
+                        className="w-full py-2.5 px-4 bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer mt-4"
                     >
                         <FiRefreshCw size={14} />
                         Reset Filters
