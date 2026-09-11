@@ -28,13 +28,13 @@ const PopularBlogs = () => {
 
     return (
         <div className="bg-white p-6 w-full border border-gray-200 dark:border-zinc-800 rounded-2xl shadow-sm dark:bg-zinc-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-            <h2 className="text-lg font-bold text-slate-900 mb-5">Popular Blogs</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-5">Popular Blogs</h2>
 
             <ul className="space-y-4">
                 {blogList.map((blog, index) => (
                     <li
                         key={index}
-                        className="p-3.5 bg-gray-50/70 hover:bg-gray-100/80 rounded-xl transition-colors duration-200 border border-gray-100"
+                        className="p-3.5 bg-gray-50/70 dark:bg-gray-50 hover:bg-gray-100/80 rounded-xl transition-colors duration-200 border border-gray-200"
                     >
 
                         <h3 className="font-bold text-gray-800 text-sm mb-1 leading-snug">

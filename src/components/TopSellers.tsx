@@ -43,7 +43,7 @@ const TopSellers = () => {
 
     return (
         <div className="bg-white p-6 w-full xl:w-[23rem] border border-gray-200 dark:border-zinc-800 rounded-2xl shadow-sm dark:bg-zinc-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-            <h2 className="text-lg font-bold text-slate-900 mb-5">Top Sellers</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-5">Top Sellers</h2>
 
             {/*LOADING STATE:*/}
             {isLoading ? (
@@ -64,7 +64,7 @@ const TopSellers = () => {
                                     alt={author.name}
                                     className="w-11 h-11 rounded-full object-cover ring-2 ring-gray-100 shadow-sm"
                                 />
-                                <span className="font-semibold text-gray-800 text-sm">{author.name}</span>
+                                <span className="font-semibold text-gray-800 dark:text-gray-400 text-sm">{author.name}</span>
                             </section>
                             <button
                                 onClick={() => handleFollowClick(index)}
