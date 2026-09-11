@@ -4,7 +4,7 @@ import { LuTally3 } from "react-icons/lu";
 import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import Button from "./Button";
 
 const MainContent = () => {
