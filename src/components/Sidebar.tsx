@@ -120,39 +120,40 @@ const Sidebar = () => {
 
                 <div className="space-y-6">
 
+                    {/* 3. SEARCH INPUT (Instagram Style) */}
                     <div className="lg:hidden">
-                        <label className="text-lg font-bold  text-slate-900 dark:text-white uppercase tracking-wider block mb-2">
+                        <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-2">
                             Search
                         </label>
                         <div className="relative">
-                            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                            <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500 pointer-events-none" size={16} />
                             <input
                                 type="text"
-                                className="w-full pl-9 pr-3 py-2 text-sm bg-gray-200 rounded-xl transition-all placeholder:text-gray-400"
-                                placeholder="Search products..."
+                                className="w-full pl-10 pr-4 py-2.5 text-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 rounded-full border border-transparent focus:border-zinc-300 dark:focus:border-zinc-700 outline-none transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+                                placeholder="Search"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </div>
                     </div>
 
-                    {/* 4. PRICE RANGE INPUTS */}
+                    {/* 4. PRICE RANGE INPUTS (Instagram Style) */}
                     <div>
-                        <label className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider block mb-2">
+                        <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-2">
                             Price Range ($)
                         </label>
                         <div className="flex gap-2 items-center">
                             <input
                                 type="number"
-                                className="w-1/2 px-3 py-2 text-sm bg-gray-200 rounded-xl outline-none transition-all placeholder:text-gray-400"
+                                className="w-1/2 px-4 py-2.5 text-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 rounded-full border border-transparent focus:border-zinc-300 dark:focus:border-zinc-700 outline-none transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
                                 placeholder="Min"
                                 value={minPrice ?? ""}
                                 onChange={handleMinPriceChange}
                             />
-                            <span className="text-gray-400 font-bold">-</span>
+                            <span className="text-zinc-400 dark:text-zinc-600 font-bold">-</span>
                             <input
                                 type="number"
-                                className="w-1/2 px-3 py-2 text-sm bg-gray-200 rounded-xl outline-none transition-all placeholder:text-gray-400"
+                                className="w-1/2 px-4 py-2.5 text-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 rounded-full border border-transparent focus:border-zinc-300 dark:focus:border-zinc-700 outline-none transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
                                 placeholder="Max"
                                 value={maxPrice ?? ""}
                                 onChange={handleMaxPriceChange}
@@ -211,8 +212,8 @@ const Sidebar = () => {
                                         variant={isActive ? "primary" : "secondary"}
                                         onClick={() => handleKeywordClick(keyword)}
                                         className={`px-3 py-1.5 text-xs font-medium rounded-lg capitalize transition-all ${isActive
-                                                ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
-                                                : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                                            ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
+                                            : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
                                             }`}
                                     >
                                         {keyword}

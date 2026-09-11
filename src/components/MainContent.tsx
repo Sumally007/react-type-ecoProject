@@ -111,11 +111,11 @@ const MainContent = () => {
                     </div>
                     <div className="flex-1 hidden lg:block">
                         <div className="relative mb-5">
-                            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                            <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500 pointer-events-none" size={16} />
                             <input
                                 type="text"
-                                className="w-full pl-9 pr-3 py-2 text-sm bg-gray-200 rounded-xl transition-all outline-none placeholder:text-gray-400"
-                                placeholder="Search products..."
+                                className="w-full pl-10 pr-4 py-2.5 text-sm bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 rounded-full border border-transparent focus:border-zinc-300 dark:focus:border-zinc-700 outline-none transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+                                placeholder="Search"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
