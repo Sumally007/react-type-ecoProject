@@ -4,6 +4,7 @@ import { useFilter } from "./FilterContext";
 import { IoMdClose } from "react-icons/io";
 import { FiRefreshCw, FiSearch } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
+import Button from "./Button";
 
 interface Product {
     category: string;
@@ -201,29 +202,40 @@ const Sidebar = () => {
                             Popular Keywords
                         </h2>
                         <div className="flex flex-wrap gap-2">
-                            {keywords.map((keyword, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleKeywordClick(keyword)}
-                                    className={`px-3 py-1.5 text-xs font-medium rounded-lg capitalize transition-all cursor-pointer ${activeKeyword === keyword
-                                        ? "bg-black text-white shadow-sm"
-                                        : "bg-gray-100 text-gray-400 hover:bg-gray-200"
-                                        }`}
-                                >
-                                    {keyword}
-                                </button>
-                            ))}
+                            {keywords.map((keyword, index) => {
+                                const isActive = activeKeyword === keyword;
+
+                                return (
+                                    <Button
+                                        key={index}
+                                        variant={isActive ? "primary" : "secondary"}
+                                        onClick={() => handleKeywordClick(keyword)}
+                                        className={`px-3 py-1.5 text-xs font-medium rounded-lg capitalize transition-all ${isActive
+                                                ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
+                                                : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                                            }`}
+                                    >
+                                        {keyword}
+                                    </Button>
+                                );
+                            })}
                         </div>
                     </div>
 
                     {/* 7. RESET BUTTON */}
-                    <button
+                    <Button variant="primary"
+                        onClick={handleResetFilters}
+                        className="w-full py-2.5 px-4">
+                        <FiRefreshCw size={14} />
+                        Reset Filters
+                    </Button>
+                    {/* <button
                         onClick={handleResetFilters}
                         className="w-full py-2.5 px-4 bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer mt-4"
                     >
                         <FiRefreshCw size={14} />
                         Reset Filters
-                    </button>
+                    </button> */}
                 </div>
             </aside>
         </>
