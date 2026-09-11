@@ -63,7 +63,7 @@ const TopSellers = () => {
                                 <img
                                     src={author.image}
                                     alt={author.name}
-                                    className="w-11 h-11 rounded-full object-cover ring-2 ring-gray-100 shadow-sm"
+                                    className="w-11 h-11 rounded-full object-cover ring-2 ring-gray-100 dark:ring-zinc-800 shadow-sm"
                                 />
                                 <span className="font-semibold text-gray-800 dark:text-gray-400 text-sm">{author.name}</span>
                             </section>
