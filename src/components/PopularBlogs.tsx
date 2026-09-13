@@ -34,20 +34,20 @@ const PopularBlogs = () => {
                 {blogList.map((blog, index) => (
                     <li
                         key={index}
-                        className="p-3.5 bg-gray-50/70 dark:bg-gray-50 hover:bg-gray-100/80 rounded-xl transition-colors duration-200 border border-gray-200"
+                        className="p-3.5 bg-gray-50/70  dark:border-zinc-800 rounded-2xl shadow-sm dark:bg-zinc-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 hover:bg-gray-100/80 border border-gray-200"
                     >
 
-                        <h3 className="font-bold text-gray-800 text-sm mb-1 leading-snug">
+                        <h3 className="font-bold dark:text-white text-gray-800 text-sm mb-1 leading-snug">
                             {blog.title}
                         </h3>
 
 
-                        <p className="text-xs text-gray-500 mb-3">
-                            Published by <span className="font-medium text-gray-700">{blog.author}</span>
+                        <p className="text-xs  text-gray-500 mb-3">
+                            Published by <span className="font-medium dark:text-gray-300 text-gray-700">{blog.author}</span>
                         </p>
 
 
-                        <div className="flex items-center gap-4 text-xs font-semibold text-gray-600 pt-2 border-t border-gray-200/60">
+                        <div className="flex items-center gap-4 text-xs font-semibold text-gray-600 pt-2 border-t dark:border-zinc-800 border-gray-200/60">
 
 
                             <div className="flex items-center gap-1.5 text-gray-500">
