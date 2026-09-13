@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaStar, FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 import Button from "./Button";
+import { MdMenu } from "react-icons/md";
+import { useFilter } from "./FilterContext";
 // import ThemeToggle from "./ThemeToggle";
 
 interface Product {
@@ -16,6 +18,8 @@ interface Product {
 }
 
 const ProductPage = () => {
+    const { toggleSidebar } = useFilter();
+
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
@@ -51,14 +55,17 @@ const ProductPage = () => {
 
     return (
         <div className="w-full flex flex-col items-center h-full p-4 pb-0 xl:pl-4 min-h-screen dark:bg-zinc-950">
+            <div className="w-full flex justify-between items-center mb-6">
+                <MdMenu onClick={toggleSidebar} size={26} className="md:hidden cursor-pointer" />
 
-            <Button
-                variant="secondary"
-                className="place-self-start mb-6"
-                onClick={() => navigate(-1)}>
-                <FaArrowLeft size={14} />
-                Back
-            </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() => navigate(-1)}>
+                    <FaArrowLeft size={14} />
+                    Back
+                </Button>
+            </div>
+
 
             {/* <button
                 onClick={() => navigate(-1)}
@@ -139,14 +146,14 @@ const ProductPage = () => {
                             </p>
 
 
-                            <div className="pt-4 border-t dark:border-zinc-800 border-gray-100 flex items-center justify-between mt-auto">
-                                <div>
+                            <div className="pt-4 border-t w-full gap-6 flex-wrap dark:border-zinc-800 border-gray-100 flex items-center justify-between mt-auto">
+                                <div className="">
                                     <span className="text-xs text-gray-400 block uppercase font-medium">Price</span>
                                     <span className="text-3xl font-extrabold text-gray-900 dark:text-white">${product.price.toFixed(2)}</span>
                                 </div>
 
                                 <Button variant="primary"
-                                    className="w-full sm:w-auto px-6 place-self-end">
+                                    className="w-max-content px-6 place-self-end">
                                     <FaShoppingCart size={18} />
                                     <span>Add to Cart</span>
                                 </Button>
