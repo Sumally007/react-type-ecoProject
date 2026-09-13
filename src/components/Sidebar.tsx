@@ -178,7 +178,7 @@ const Sidebar = () => {
                                     <label
                                         key={index}
                                         className={`flex items-center p-2 rounded-lg cursor-pointer text-xs font-medium transition-colors ${selectedCategory === category
-                                            ? "bg-pink-500 text-white font-semibold"
+                                            ? "bg-blue-700 text-white font-semibold"
                                             : "text-slate-500 dark:text-gray-400  hover:bg-gray-200"
                                             }`}
                                     >
@@ -187,7 +187,7 @@ const Sidebar = () => {
                                             name="category"
                                             value={category}
                                             onChange={() => handleRadioChangeCategories(category)}
-                                            className="mr-3 w-4 h-4 accent-pink-500 cursor-pointer"
+                                            className="mr-3 w-4 h-4 accent-blue-700 cursor-pointer"
                                             checked={selectedCategory === category}
                                         />
                                         <span className="capitalize">{category}</span>

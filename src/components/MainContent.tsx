@@ -102,7 +102,7 @@ const MainContent = () => {
     return (
         <section className="w-full p-4">
             <div>
-                <div className="flex md:flex-row justify-between items-center gap-4 flex-wrap">
+                <div className="flex md:flex-row justify-between items-center gap-4 flex-wrap md:mb-5">
                     <div>
                         <h1 className="flex justify-between items-center text-2xl font-bold mb-5 xl:mb-10 mt-4 md:hidden">
                             <MdMenu onClick={toggleSidebar} size={26} className="text-center mr-2 md:hidden cursor-pointer" />
@@ -110,7 +110,7 @@ const MainContent = () => {
                         </h1>
                     </div>
                     <div className="flex-1 hidden lg:block">
-                        <div className="relative mb-5">
+                        <div className="relative">
                             <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500 pointer-events-none" size={16} />
                             <input
                                 type="text"
@@ -125,7 +125,7 @@ const MainContent = () => {
                     {/* <div className="md:hidden">
                         <ThemeToggle />
                     </div> */}
-                    <div className="relative mb-5 mt-auto">
+                    <div className="relative">
                         <Button variant="primary" onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
