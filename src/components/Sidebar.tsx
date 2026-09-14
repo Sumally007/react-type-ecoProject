@@ -3,7 +3,7 @@ import { useFilter } from "./FilterContext";
 // import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { FiRefreshCw, FiSearch } from "react-icons/fi";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import Button from "./Button";
 
 interface Product {
@@ -108,7 +108,7 @@ const Sidebar = () => {
                     <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">
                         React Store
                     </h1>
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> */}
 
                     <button
                         onClick={toggleSidebar}
