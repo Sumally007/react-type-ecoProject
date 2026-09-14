@@ -4,7 +4,7 @@ import { LuTally3 } from "react-icons/lu";
 import BookCard from "./BookCard";
 import { MdMenu } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
-// import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 import Button from "./Button";
 
 const MainContent = () => {
@@ -109,7 +109,7 @@ const MainContent = () => {
                             React Store
                         </h1>
                     </div>
-                    <div className="flex-1 hidden lg:block">
+                    <div className="flex-1 hidden md:block">
                         <div className="relative">
                             <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500 pointer-events-none" size={16} />
                             <input
@@ -122,39 +122,42 @@ const MainContent = () => {
                         </div>
 
                     </div>
-                    {/* <div className="md:hidden">
-                        <ThemeToggle />
-                    </div> */}
-                    <div className="relative">
-                        <Button variant="primary" onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
-                            <LuTally3 />
-                            {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
-                        </Button>
+                    <div className="flex gap-4">
+                        <div>
+                            <ThemeToggle />
+                        </div>
+                        <div className="relative">
+                            <Button variant="primary" onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
+                                <LuTally3 />
+                                {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
+                            </Button>
 
-                        {/* <button onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
+                            {/* <button onClick={() => setDropdownOpen(!dropdownOpen)} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
                             <LuTally3 />
                             {filter === "all" ? "filter" : filter.charAt(0).toLowerCase() + filter.slice(1)}
                         </button> */}
 
 
 
-                        {dropdownOpen && (
-                            <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40 z-10 shadow-md">
-                                <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "cheap" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
-                                    }`}>
-                                    Cheap
-                                </button>
-                                <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "expensive" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
-                                    }`}>
-                                    Expensive
-                                </button>
-                                <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "popular" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
-                                    }`}>
-                                    Popular
-                                </button>
-                            </div>
-                        )}
+                            {dropdownOpen && (
+                                <div className="absolute bg-white border-gray-300 rounded mt-2 w-full sm:w-40 z-10 shadow-md">
+                                    <button onClick={() => { setFilter("cheap"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "cheap" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
+                                        }`}>
+                                        Cheap
+                                    </button>
+                                    <button onClick={() => { setFilter("expensive"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "expensive" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
+                                        }`}>
+                                        Expensive
+                                    </button>
+                                    <button onClick={() => { setFilter("popular"); setDropdownOpen(false); }} className={`block px-4 py-2 w-full text-left cursor-pointer ${filter === "popular" ? "bg-gray-200 text-gray-600" : "hover:bg-gray-100 text-gray-700"
+                                        }`}>
+                                        Popular
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
+
                     <div className="relative w-full mb-10 md:hidden">
                         <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500 pointer-events-none" size={16} />
                         <input

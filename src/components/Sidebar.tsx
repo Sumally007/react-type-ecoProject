@@ -121,7 +121,7 @@ const Sidebar = () => {
                 <div className="space-y-6">
 
                     {/* 3. SEARCH INPUT (Instagram Style) */}
-                    <div className="lg:hidden">
+                    <div className="hidden">
                         <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-2">
                             Search
                         </label>
